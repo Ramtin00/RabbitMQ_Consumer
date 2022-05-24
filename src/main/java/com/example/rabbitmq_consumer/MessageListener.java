@@ -8,6 +8,7 @@ public class MessageListener {
 
     @RabbitListener(queues = MQConfig.QUEUE)
     public void listener(CustomMessage message) {
+        PDFMaker pdf = new PDFMaker(message.getMessage());
         System.out.println(message);
     }
 
